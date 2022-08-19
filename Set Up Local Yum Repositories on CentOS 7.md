@@ -78,12 +78,12 @@ Hệ thống sẽ tiếp cận và tải xuống các bản sao của các kho l
 
 In the previous commands, the options are as follows:
 
-- –g – lets you remove or uninstall packages on CentOS that fail a GPG check
-- –l – yum plugin support
-- –d – lets you delete local packages that no longer exist in the repository
-- –m – lets you download comps.xml files, useful for bundling groups of packages by function
-- ––repoid – specify repository ID
-- ––newest-only – only download the latest package version, helps manage the size of the repository
+- –g: cho phép chúng ta xóa hoặc gỡ cài đặt các gói trên CentOS không kiểm tra được GPG
+- –l: yum plugin support
+- –d: lets you delete local packages that no longer exist in the repository
+- –m: lets you download comps.xml files, hữu ích để đóng gói các nhóm gói theo chức năng
+- ––repoid: chỉ định ID kho lưu trữ
+- ––newest-only: chỉ tải xuống phiên bản gói mới nhất, giúp quản lý kích thước của kho lưu trữ
 - ––download-metadata – download non-default metadata
 - ––download-path – specifies the location to save the packages
 
@@ -97,7 +97,7 @@ cp /media/packages/* /var/ftp/repos
 
 ### Step 5: Create the New Repository
 
-We’ll use the createrepo utility to create a repository.
+Chúng ta sẽ sử dụng tiện ích createrepo để tạo một kho repo lưu trữ.
 
 To create the repository for HTTP use the command:
 
@@ -116,7 +116,7 @@ sudo createrepo /var/ftp
 Now set up a local Yum Repository on a clients machine.
 
 - 1. First, switch to the client system and login as a user with root or sudo privileges.
-- 2. Next, you’ll need to prevent yum from downloading from the wrong location. To do this, move the default yum repository files with the following command:
+- 2. Tiếp theo, chúng ta sẽ cấu hình để ngăn yum tải xuống sai vị trí. Để thực hiện việc này, hãy di chuyển các tệp kho lưu trữ yum mặc định bằng lệnh sau:
   
   ```
   mv /etc/yum.repos.d/*.repo /tmp/
