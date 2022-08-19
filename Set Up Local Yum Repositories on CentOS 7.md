@@ -23,6 +23,11 @@ To use HTTP, install the Apache web services package with the command:
 sudo yum install httpd
 ```
 
+```
+systemctl enable httpd
+systemctl restart httpd
+```
+
 If you are using FTP instead, install the vsftpd software package with:
 
 ```
@@ -114,9 +119,8 @@ sudo createrepo /var/ftp
 ### Step 6: Setup Local Yum Repository on Client System
 
 Now set up a local Yum Repository on a clients machine.
-
-- 1. First, switch to the client system and login as a user with root or sudo privileges.
-- 2. Tiếp theo, chúng ta sẽ cấu hình để ngăn yum tải xuống sai vị trí. Để thực hiện việc này, hãy di chuyển các tệp kho lưu trữ yum mặc định bằng lệnh sau:
+1. First, switch to the client system and login as a user with root or sudo privileges.
+2. Tiếp theo, chúng ta sẽ cấu hình để ngăn yum tải xuống sai vị trí. Để thực hiện việc này, hãy di chuyển các tệp kho lưu trữ yum mặc định bằng lệnh sau:
   
   ```
   mv /etc/yum.repos.d/*.repo /tmp/
