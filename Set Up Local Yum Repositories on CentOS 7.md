@@ -138,6 +138,41 @@ sudo createrepo /var/ftp
 
 ### Step 6: Setup Local Yum Repository on Client System
 
+#### a. Bổ sung kiến thức
+
+A yum repository has its own configuration file and there are a few rules for it:
+- It must be located in /etc/yum.repos.d/ directory
+- It must have the .repo extension, to be recognized by yum
+
+File options are:
+- Repository ID – One word unique repository ID (example: [myrepo])
+- Name – Human-readable name of the repository (example: name=My Repository)
+- Baseurl – URL to the repodata directory. You can use file://path if repository is located locally or ftp://link, http://link, https://link if repository is located
+- remotely – HTTP Authentication available http://user:password@www.
+- Enabled – Enable repository when performing updates and installs (example: enabled=1)
+- Gpgcheck – Enable/disable GPG signature checking (example: gpgcheck=1)
+- Gpgkey – URL to the GPG key (example: gpgkey=http://mirror.cisp.com/)
+- Exclude – List of the packages to exclude (example: exclude=httpd,mod_ssl)
+- Includepkgs – List of the packages to include (example: include=kernel)
+
+Required yum repository configuration file options are:
+- Repository ID
+- Name
+- Baseurl
+- Enabled
+
+For example:
+
+```
+[customrepo]
+name=CustomRepository
+baseurl=file:///opt/rpms
+enabled=1
+gpgcheck=0
+```
+
+#### b. Tiến hành cấu hình
+
 Now set up a local Yum Repository on a clients machine.
 1. First, switch to the client system and login as a user with root or sudo privileges.
 2. Tiếp theo, chúng ta sẽ cấu hình để ngăn yum tải xuống sai vị trí. Để thực hiện việc này, hãy di chuyển các tệp kho lưu trữ yum mặc định bằng lệnh sau:
