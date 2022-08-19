@@ -130,6 +130,12 @@ If you already created the repository metadata and you are just adding new packa
 createrepo --update /var/www/html
 ```
 
+Nói thêm chút về lệnh update này: 
+
++ If metadata already exists in the outputdir and an rpm is unchanged (based on file size and mtime) since the metadata was generated, reuse the existing metadata rather than recalculating it. In the case of a large repository with only a few new or modified rpms this can significantly reduce I/O and processing time.
++ Nếu metadata đã tồn tại trong outputdir và rpm không thay đổi (dựa trên kích thước tệp và mtime) kể từ khi metadata được tạo, hãy sử dụng lại metadata hiện có thay vì tính toán lại.
++ Trong trường hợp một kho lưu trữ lớn chỉ có một vài rpms mới hoặc được sửa đổi, điều này có thể làm giảm đáng kể I/O và thời gian xử lý.
+
 Similarly, create a repository for FTP, enter the following:
 
 ```
