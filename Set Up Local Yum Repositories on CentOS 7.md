@@ -142,18 +142,18 @@ sudo createrepo /var/ftp
 
 A yum repository has its own configuration file and there are a few rules for it:
 - It must be located in /etc/yum.repos.d/ directory
-- It must have the .repo extension, to be recognized by yum
+- Nó phải có phần mở rộng .repo, để được yum công nhận
 
 File options are:
-- Repository ID – One word unique repository ID (example: [myrepo])
-- Name – Human-readable name of the repository (example: name=My Repository)
-- Baseurl – URL to the repodata directory. You can use file://path if repository is located locally or ftp://link, http://link, https://link if repository is located
-- remotely – HTTP Authentication available http://user:password@www.
-- Enabled – Enable repository when performing updates and installs (example: enabled=1)
-- Gpgcheck – Enable/disable GPG signature checking (example: gpgcheck=1)
-- Gpgkey – URL to the GPG key (example: gpgkey=http://mirror.cisp.com/)
-- Exclude – List of the packages to exclude (example: exclude=httpd,mod_ssl)
-- Includepkgs – List of the packages to include (example: include=kernel)
+- Repository ID: One word unique repository ID (example: [myrepo])
+- Name: Human-readable name of the repository (example: name=My Repository)
+- Baseurl: URL to the repodata directory. You can use file://path if repository is located locally or ftp://link, http://link, https://link if repository is located
+- remotely: HTTP Authentication available http://user:password@www.
+- Enabled: Enable repository when performing updates and installs (example: enabled=1)
+- Gpgcheck: Enable/disable GPG signature checking - Tùy chọn: Bật kho lưu trữ khi thực hiện cập nhật và cài đặt (example: gpgcheck=1)
+- Gpgkey: URL to the GPG key (example: gpgkey=http://mirror.cisp.com/)
+- Exclude: List of the packages to exclude - loại trừ (example: exclude=httpd,mod_ssl)
+- Includepkgs: List of the packages to include (example: include=kernel)
 
 Required yum repository configuration file options are:
 - Repository ID
