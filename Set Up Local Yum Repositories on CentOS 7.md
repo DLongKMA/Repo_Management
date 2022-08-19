@@ -177,29 +177,29 @@ Now set up a local Yum Repository on a clients machine.
 1. First, switch to the client system and login as a user with root or sudo privileges.
 2. Tiếp theo, chúng ta sẽ cấu hình để ngăn yum tải xuống sai vị trí. Để thực hiện việc này, hãy di chuyển các tệp kho lưu trữ yum mặc định bằng lệnh sau:
   
-  ```
-  mv /etc/yum.repos.d/*.repo /tmp/
-  ```
+   ```
+   mv /etc/yum.repos.d/*.repo /tmp/
+   ```
   
   This command stores the files in the /tmp/ directory. You can substitute any other location you’d like.
 
   - Create and edit a new config file:
   
-  ```
-  sudo nano /etc/yum.repos.d/remote.repo
-  ```
+    ```
+    sudo nano /etc/yum.repos.d/remote.repo
+    ```
   
   The system should open a new file in a text editor.
 
   - In the new file, enter the command (replacing the IP address with the IP address of your server):
   
-  ```
-  [remote]
-  name=RHEL Apache
-  baseurl=http://192.168.1.10
-  enabled=1
-  gpgcheck=0
-  ```
+    ```
+    [remote]
+    name=RHEL Apache
+    baseurl=http://192.168.1.10
+    enabled=1
+    gpgcheck=0
+    ```
 
   - Finally, save the file and exit.
 
