@@ -128,7 +128,7 @@ Now set up a local Yum Repository on a clients machine.
   
   This command stores the files in the /tmp/ directory. You can substitute any other location you’d like.
 
-- 3. Create and edit a new config file:
+  - Create and edit a new config file:
   
   ```
   sudo nano /etc/yum.repos.d/remote.repo
@@ -136,7 +136,7 @@ Now set up a local Yum Repository on a clients machine.
   
   The system should open a new file in a text editor.
 
-- 4. In the new file, enter the command (replacing the IP address with the IP address of your server):
+  - In the new file, enter the command (replacing the IP address with the IP address of your server):
   
   ```
   [remote]
@@ -146,7 +146,7 @@ Now set up a local Yum Repository on a clients machine.
   gpgcheck=0
   ```
 
-- 5. Finally, save the file and exit.
+  - Finally, save the file and exit.
 
   If you’re configuring for FTP, use the following instead (replacing the IP address with the IP address of your server):
   
@@ -158,7 +158,7 @@ Now set up a local Yum Repository on a clients machine.
   gpgcheck=0
   ```
   
-- Step 7: Test the Configuration
+### Step 7: Test the Configuration
   
   While still on the client system, run a command to install a package with the yum package manager:
   ```
