@@ -165,6 +165,17 @@ Now set up a local Yum Repository on a clients machine.
   sudo yum install httpd
   ```
   
+  Và đây là kết quả sau khi cài đặt:
+  
+  ![image](https://user-images.githubusercontent.com/75653012/185535623-675b9fc6-aa0c-46df-ae4a-0564c3f81d9c.png)
+
+  
+  Còn trên máy Server (10.168.6.61), ta cài đặt thử 1 package mới và kết quả sẽ như sau:
+  
+  ![image](https://user-images.githubusercontent.com/75653012/185536560-57138eff-4f29-4f5f-ab4e-1730da85abf5.png)
+  
+  Repo bây giờ là repo mà ta đã thiết lập trong thư mục đã tạo ở bước 2
+  
   The system should accordingly reach out to your server and install the software.
 
 ## 3. Conclusion
