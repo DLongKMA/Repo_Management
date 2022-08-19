@@ -19,17 +19,29 @@ curl -O http://centos.mirror.liquidtelecom.com/7.9.2009/isos/x86_64/CentOS-7-x86
 ```
 
 ## 2. Step 2:  Create Mount points and Mount ISO image
+
 After downloading, we’ll have to mount it. There are two mounting Options we can use:
 
-Mounting the ISO file to a local directory in our Linux system
+### 2.1. Mounting the ISO file to a local directory in our Linux system
+
 Create a directory for mounting
+
+```
 sudo mkdir -p /mnt/centos7
+```
+
 Mount ISO image of CentOS Everything or CentOS 7 DVD ISO
 
- sudo mount -t iso9660 -o loop CentOS-7-x86_64-Everything-2009.iso /mnt/centos7
+```
+sudo mount -t iso9660 -o loop CentOS-7-x86_64-Everything-2009.iso /mnt/centos7
+```
+
 Confirm it’s mounted using du or ls command:
 
-$ du -sch /mnt/centos7/*
+```
+du -sch /mnt/centos7/*
+```
+```
 512	/mnt/centos7/CentOS_BuildTag
 8.4M	/mnt/centos7/EFI
 512	/mnt/centos7/EULA
@@ -43,22 +55,41 @@ $ du -sch /mnt/centos7/*
 2.0K	/mnt/centos7/RPM-GPG-KEY-CentOS-Testing-7
 3.0K	/mnt/centos7/TRANS.TBL
 9.6G	total
-Mounting the ISO image file to a web server directory
+```
+
+### 2.2. Mounting the ISO image file to a web server directory
+
+```
+Cách này sẽ có 1 bài viết riêng
+```
+
 I’m using Apache server running on another CentOS server.
 
+```
 sudo yum -y install httpd
 sudo systemctl enable --now httpd
+```
+
 If you’re doing this on any other Linux server, replace the root directory of web server with the one provided here.
 
 Create a directory for mounting:
 
+```
 sudo mkdir /var/www/html/centos7/
 sudo mount -t iso9660 -o loop CentOS-7-x86_64-Everything-2009.iso /var/www/html/centos7/
-The output you get from last command is:
+```
 
+The output you get from last command is:
+```
 mount: /dev/loop0 is write-protected, mounting read-only
+```
+
 The contents of the /var/www/html/centos/ directory should be as shown:
-$ ls -lh /var/www/html/centos7/
+
+```
+ls -lh /var/www/html/centos7/
+```
+```
 total 1.7M
 -rw-r--r--  1 root root   14 Oct 29  2020 CentOS_BuildTag
 drwxr-xr-x  3 root root 2.0K Oct 26  2020 EFI
@@ -72,60 +103,88 @@ drwxr-xr-x  2 root root 4.0K Oct 29  2020 repodata
 -rw-rw-r-- 17 root root 1.7K Dec  9  2015 RPM-GPG-KEY-CentOS-7
 -rw-rw-r-- 15 root root 1.7K Dec  9  2015 RPM-GPG-KEY-CentOS-Testing-7
 -r--r--r--  1 root root 2.9K Nov  2  2020 TRANS.TBL
+```
+
 If you had CentOS 7 DVD ISO image on CD/DVD drive. Create a mount point and mount cdrom using the following commands:
 
+```
 sudo  mkdir -p /mnt/cent/cdrom
 sudo mount /dev/cdrom /mnt/cent/cdrom
-Step 3: Create a repo and put it inside /etc/yum/repos.d/ directory
+```
+
+## 3. Step 3: Create a repo and put it inside /etc/yum/repos.d/ directory
+
 This is done on Server with CentOS minimal installation, or server that you need to install packages on while pulling the packages from local repository you just added.
 
-For local disk mount on /mnt
+### 3.1. For local disk mount on /mnt
+
 If you used local directory mount option then configure like below.
 
 Create repository file:
 
+```
 sudo vim /etc/yum.repos.d/centos7-local.repo
+```
+
 Add contents which looks like this:
 
+```
 [centos7-local]
 name=centos7-local
 baseurl=file:///mnt/centos7/
 enabled=0
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-For repository files on http server
-The IP address of the server I’m using is 192.168.1.60. Below is the repo configuration.
+```
 
+### 3.2. For repository files on http server
+
+The IP address of the server I’m using is 10.168.6.60. Below is the repo configuration.
+
+```
 [centos7-local]
 name=centos7-local
 baseurl=http://192.168.1.60/centos7
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+```
+
 Browsing to the Web Server centos directory:
 
-apache centos repo mount
-For cdrom mount point /mnt/centos/cdrom/
+![image](https://user-images.githubusercontent.com/75653012/185557422-79ac5f37-d646-47f0-9dc8-47a56107102a.png)
+
+### 3.3. For cdrom mount point /mnt/centos/cdrom/
+
 If you used the mount point of /mnt/centos/cdrom/:
 
+```
 [centos7-local]
 name=centos7-local
 baseurl=file:///mnt/cent/cdrom/
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+```
+
 Then do yum clean all remove cached date and update repo list
 
-$ sudo yum clean all
-Loaded plugins: fastestmirror, langpacks, priorities
-Cleaning repos: base epel extras remi-safe updates
-Cleaning up everything
-Cleaning up list of fastest mirrors
-NOTE: Enabling the repository locally added alone is not necessary enough to let us install software packages from it. This is because by default, any package being installed will use CentOS Base repository. We’ll discuss on a working solution to this shortly.
+```
+sudo yum clean all
+```
+
+```
+NOTE: 
+Enabling the repository locally added alone is not necessary enough to let us install software packages from it. 
+This is because by default, any package being installed will use CentOS Base repository. We’ll discuss on a working solution to this shortly.
+```
 
 Package groups available in CentOS 7 repository are:
 
-$ sudo yum group list
+```
+sudo yum group list
+```
+```
 Loaded plugins: fastestmirror
 There is no installed groups file.
 Maybe run: yum groups mark convert (see man yum)
@@ -186,42 +245,70 @@ Web-Based Enterprise Management
 Xfce
 iSCSI Storage Client
 Done
+```
+
 When other CentOS repos are enabled and you specify centos-local repo, yum will always try to download latest package from repo with the latest package. The default repo being CentOS Base repo.
 
 If you want to force yum to use local repository, you have to disable all other repos and enable them once you are done.You have two options you can use to achieve this.
 
-Option: Move all other repositories to backup folder
+## 4. Option
+
+### 4.1. Option 1: Move all other repositories to backup folder
+
 The simplest solution can be like below:
 
+```
 mkdir ~/repos
 cp -r /etc/yum.repos.d/* ~/repos/
 ls -l ~/repos/
 rm -rf /etc/yum.repos.d/*
 ls -l /etc/yum.repos.d/
+```
+
 Copy local repository file back:
 
+```
 sudo cp ~/repos/centos7-local.repo /etc/yum.repos.d/
+```
+
 Check to see if successfully added:
 
+```
 sudo yum repolist
+```
+
 Example of package installation from Local repository:
 
-install openldap
+![image](https://user-images.githubusercontent.com/75653012/185557698-49fe23cf-557f-4d05-8acc-c490ded60e66.png)
+
+
 To install all packages belonging to “GNOME Desktop” Environment Group, we’ll do:
 
+```
 sudo yum groupinstall "GNOME Desktop"
-Option 2: Using --enablerepo=centos7-local command option and --disablerepo=* command option
-Alternatively, use --enablerepo and --disablerepo command options accordingly.
+```
+
+### 4.2. Option 2: Using --enablerepo=centos7-local command option and --disablerepo=* command option
+
+Alternatively, use `--enablerepo` and `--disablerepo` command options accordingly.
 
 See below example which installs all packages belonging to “Virtualization Host” Environment Group, we’ll do:
 
+```
 sudo yum --disablerepo=* --enablerepo=centos7-local groupinstall "Virtualization Host"
+```
+
 Installing single packages:
 
+```
 sudo yum --disablerepo=* --enablerepo=centos7-local install vim
-Later on you can return the repos to original directory:
+```
 
+Later on you can return the repos to original directory:
+```
 cp -r ~/repos/* /etc/yum.repos.d/
+```
+
 That’s all for now on how to configure CentOS 7 Local Yum repositories. Remember to copy repositories back from ~/repos/ to /etc/yum.repos.d/ directory if you need to use other YUM repositories initially configured on the server. We’ll share a similar guide for EPEL and other commonly used CentOS repositories not from OS upstream project.
 
 
