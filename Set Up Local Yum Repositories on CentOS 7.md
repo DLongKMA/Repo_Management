@@ -48,7 +48,11 @@ sudo yum install createrepo
 
 The createrepo command reads through the directory with rpm packages and creates a new directory called “repodata” in it.  This directory contains the metadata information for the repository. Every time you add additional rpm package files to your yum repository, you need to re-create the repository metadata with the “createrepo” command.
 
+![image](https://user-images.githubusercontent.com/75653012/185539264-8381c290-e295-4412-bbfe-1a4279ed325c.png)
 
+Lệnh `createrepo` đọc qua thư mục với các gói rpm và tạo một thư mục mới có tên là “repodata” trong đó. Thư mục này chứa thông tin siêu dữ liệu cho kho lưu trữ. Mỗi khi bạn thêm các tệp gói rpm bổ sung vào kho lưu trữ yum của mình, bạn cần tạo lại siêu dữ liệu của kho lưu trữ bằng lệnh “createrepo”.
+
+![image](https://user-images.githubusercontent.com/75653012/185539452-ad09895f-bbcf-4a24-8860-8a115f389698.png)
 
 Next, install `yum-utils` cung cấp cho hệ thống của bạn một toolbox tốt hơn để quản lý repo. Cài đặt yum-utils bằng sử dụng câu lệnh sau:
 
@@ -108,10 +112,22 @@ cp /media/packages/* /var/ftp/repos
 
 Chúng ta sẽ sử dụng tiện ích createrepo để tạo một kho repo lưu trữ.
 
+Câu lệnh mẫu:
+
+```
+createrepo <path_to_your_directory_with_rpms>
+```
+
 To create the repository for HTTP use the command:
 
 ```
 sudo createrepo /var/www/html
+```
+
+If you already created the repository metadata and you are just adding new packages to it you need to update the repo:
+
+```
+createrepo --update /var/www/html
 ```
 
 Similarly, create a repository for FTP, enter the following:
