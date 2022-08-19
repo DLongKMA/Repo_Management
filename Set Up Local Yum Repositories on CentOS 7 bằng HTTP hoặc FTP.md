@@ -1,4 +1,4 @@
-# Thiết lập Local Yum Repositories trên Centos 7
+# Thiết lập Local Yum Repositories trên Centos 7 bằng HTTP hoặc FTP
 
 Trong Linux, repository là `cơ sở dữ liệu trung tâm`-`central database` của phần mềm. Các bản phân phối Linux có một kho lưu trữ trung tâm cho hệ thống và phần mềm thường được sử dụng. Thông thường, các quản trị viên có thể có nhu cầu về một gói phần mềm chuyên dụng hoặc để quản lý băng thông mạng. Vì những lý do này, chúng ta cần thiết lập một local repository tùy chỉnh mới. 
 Yum là một local repository cho các tệp gói RPM. Các packages compress này có sẵn cho các bản phân phối Linux. Với repository, chúng ta có thể tải xuống, cài đặt và giữ các gói trên đĩa cục bộ hoặc từ xa.
