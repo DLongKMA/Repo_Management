@@ -46,6 +46,10 @@ One helpful tool is the createrepo software package. Phần mềm này gộp m�
 sudo yum install createrepo
 ```
 
+The createrepo command reads through the directory with rpm packages and creates a new directory called “repodata” in it.  This directory contains the metadata information for the repository. Every time you add additional rpm package files to your yum repository, you need to re-create the repository metadata with the “createrepo” command.
+
+
+
 Next, install `yum-utils` cung cấp cho hệ thống của bạn một toolbox tốt hơn để quản lý repo. Cài đặt yum-utils bằng sử dụng câu lệnh sau:
 
 ```
