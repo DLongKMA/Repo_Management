@@ -36,6 +36,11 @@ Mount ISO image of CentOS Everything or CentOS 7 DVD ISO
 sudo mount -t iso9660 -o loop CentOS-7-x86_64-Everything-2009.iso /mnt/centos7
 ```
 
+```
+NOTE
+Cần tìm hiểu thông số "iso96690"
+```
+
 Confirm it’s mounted using du or ls command:
 
 ```
@@ -56,6 +61,11 @@ du -sch /mnt/centos7/*
 3.0K	/mnt/centos7/TRANS.TBL
 9.6G	total
 ```
+
+Sau Khi mount xong, thư mục /mnt/centos7 sẽ như sau:
+
+![image](https://user-images.githubusercontent.com/75653012/185727669-e751a1d9-2af2-4558-807e-a5e2a2b1c79b.png)
+
 
 ### 2.2. Mounting the ISO image file to a web server directory
 
