@@ -198,9 +198,12 @@ sudo yum group list
 ![image](https://user-images.githubusercontent.com/75653012/185728244-39e6a478-d0f9-4702-90dd-513d0344c1fb.png)
 
 
-When other CentOS repos are enabled and you specify centos-local repo, yum will always try to download latest package from repo with the latest package. The default repo being CentOS Base repo.
+Khi các repo CentOS khác được bật và chúng ta chỉ định centos-local repo, ta sẽ luôn cố gắng tải xuống `gói mới nhất`-`latest package` từ repo `có gói mới nhất`-`with the latest package`. Repo mặc định là `CentOS Base repo`.
 
-If you want to force yum to use local repository, you have to disable all other repos and enable them once you are done.You have two options you can use to achieve this.
+![image](https://user-images.githubusercontent.com/75653012/185728357-c2a5533c-cd64-4a35-a64b-b6c05afcf8a8.png)
+
+
+Nếu chúng ta muốn `yum` sử dụng `kho lưu trữ cục bộ`-` local repository`, chúng ta phải tắt-disable tất cả các kho-repos lưu trữ khác và kích hoạt-enable chúng sau khi hoàn tất. Chúng ta có hai tùy chọn có thể sử dụng để đạt được điều này.
 
 ## 4. Option
 
@@ -216,7 +219,7 @@ rm -rf /etc/yum.repos.d/*
 ls -l /etc/yum.repos.d/
 ```
 
-Copy local repository file back:
+Copy local repository file back - Sao chép lại tệp kho lưu trữ cục bộ:
 
 ```
 sudo cp ~/repos/centos7-local.repo /etc/yum.repos.d/
