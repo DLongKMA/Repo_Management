@@ -194,68 +194,9 @@ Package groups available in CentOS 7 repository are:
 ```
 sudo yum group list
 ```
-```
-Loaded plugins: fastestmirror
-There is no installed groups file.
-Maybe run: yum groups mark convert (see man yum)
-Loading mirror speeds from cached hostfile
-* base: mirror.bitco.co.za
-* epel: epel.mirrors.ovh.net
-* extras: mirror.bitco.co.za
-* updates: mirror.bitco.co.za
-Available Environment Groups:
-Minimal Install
-Compute Node
-Infrastructure Server
-File and Print Server
-MATE Desktop
-Basic Web Server
-Virtualization Host
-Server with GUI
-GNOME Desktop
-KDE Plasma Workspaces
-Development and Creative Workstation
-Available Groups:
-CIFS file server
-Compatibility Libraries
-Console Internet Tools
-Desktop
-Desktop Platform
-Desktop Platform Development
-Development Tools
-Eclipse
-Educational Software
-Electronic Lab
-FCoE Storage Client
-Fedora Packager
-General Purpose Desktop
-Graphical Administration Tools
-Haskell
-Legacy UNIX Compatibility
-Messaging Client Support
-Messaging Server Support
-Milkymist
-MySQL Database client
-MySQL Database server
-NFS file server
-Network Storage Server
-SNMP Support
-Scientific Support
-Security Tools
-Server Platform
-Server Platform Development
-Smart Card Support
-Storage Availability Tools
-System Administration Tools
-System Management
-TeX support
-TurboGears application framework
-Virtualization
-Web-Based Enterprise Management
-Xfce
-iSCSI Storage Client
-Done
-```
+
+![image](https://user-images.githubusercontent.com/75653012/185728244-39e6a478-d0f9-4702-90dd-513d0344c1fb.png)
+
 
 When other CentOS repos are enabled and you specify centos-local repo, yum will always try to download latest package from repo with the latest package. The default repo being CentOS Base repo.
 
