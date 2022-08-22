@@ -242,6 +242,11 @@ To install all packages belonging to “GNOME Desktop” Environment Group, we�
 sudo yum groupinstall "GNOME Desktop"
 ```
 
+Tiến hành cài đặt thử dịch vụ httpd trên máy vừa được cài đặt Centos7-local.repo:
+
+![tempsnip](https://user-images.githubusercontent.com/75653012/185821955-c0fc4b09-6a4b-4ce8-b053-6dd293f1e413.png)
+
+
 ### 4.2. Option 2: Using --enablerepo=centos7-local command option and --disablerepo=* command option
 
 Alternatively, use `--enablerepo` and `--disablerepo` command options accordingly.
