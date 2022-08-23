@@ -1,4 +1,4 @@
-# Set Up Local Yum Repositories on CentOS 7 bằng nginx
+# Set Up Local Yum Repositories on CentOS 7 bằng Nginx
 
 ## 1. Step 1: Install NGINX Web Server!
 
