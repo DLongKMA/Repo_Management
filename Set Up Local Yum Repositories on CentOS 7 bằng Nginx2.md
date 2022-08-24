@@ -124,7 +124,7 @@ This article contains the following topics:
   http://10.168.6.60
   ```
   
-  ![image](https://user-images.githubusercontent.com/75653012/186324593-7fff663a-3acc-4380-a66e-cb75aa36994a.png)
+  ![image](https://user-images.githubusercontent.com/75653012/186324694-704a4303-c3c7-4822-940b-33f031a9623f.png)
 
 ## 4. Step 3: Create Cron Job to Synchronize and Create Repositories
 
