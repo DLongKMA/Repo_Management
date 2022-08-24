@@ -104,7 +104,7 @@ This article contains the following topics:
   ```
   server {
    listen 80;
-   server_name repos.test.lab; #change test.lab to your real domain or IP address
+   server_name 10.168.6.60; #change test.lab to your real domain or IP address
    root /var/www/html/;
    location / {
    index index.php index.html index.htm;
@@ -116,7 +116,7 @@ This article contains the following topics:
 + 10. Then restart your Nginx server and view the repositories from a web browser using the following URL.
   
   ```
-  http://repos.test.lab
+  http://10.168.6.60
   ```
   
 ## 4. Step 3: Create Cron Job to Synchronize and Create Repositories
