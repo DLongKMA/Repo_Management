@@ -176,4 +176,5 @@ Debug:
   Solution: restorecon -R /var/www/html/repos
   ```
   
-- If you have any issues such as `Error 404 page not found` it might be related to your nginx configuration. To view nginx errors go to `/var/log/nginx/error.log`. Errors might be related to nginx configuration (`etc/nginx/conf.d/repos.conf`). Please make sure you configured it properly. 
+- If you have any issues such as `Error 404 page not found` it might be related to your nginx configuration. To view nginx errors go to `/var/log/nginx/error.log`. Errors might be related to nginx configuration (etc/nginx/conf.d/repos.conf). Please make sure you configured it properly. 
+- In case you have changed configurations (in repo server) do not forget to run 'yum clean all' and 'yum repolist all' afterwards. If you have changed nginx conf. restart nginx service. 
