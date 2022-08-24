@@ -19,14 +19,14 @@ This article contains the following topics:
 
 ## 2. Step 1: Setup Nginx on the Repo Server
 
-+ 1. First start by installing Nginx HTTP server from the EPEL repository using the YUM package manager as follows.
++ First start by installing Nginx HTTP server from the EPEL repository using the YUM package manager as follows.
 
   ```
   yum install epel-release
   yum install nginx 
   ```
 
-+ 2. Once you have installed Nginx web server, you can start it for the first time and enable it to start automatically at system boot.
++ Once you have installed Nginx web server, you can start it for the first time and enable it to start automatically at system boot.
 
   - CentOS 6 Command:
 
@@ -41,7 +41,7 @@ This article contains the following topics:
     systemctl enable nginx
     ```
 
-+ 3. Next, you need to open port 80 and 443 to allow web traffic to Nginx service, update the system firewall rules to permit inbound packets on HTTP and HTTPS using the commands below
++ Next, you need to open port 80 and 443 to allow web traffic to Nginx service, update the system firewall rules to permit inbound packets on HTTP and HTTPS using the commands below
 
   - CentOS 6 Commands:
     ```
@@ -57,16 +57,16 @@ This article contains the following topics:
     firewall-cmd --zone=public --permanent --add-service=https
     firewall-cmd --reload
     ```
-+ 4. Confirm that your Nginx server is up and running, using the following URL; if you see the default Nginx web page, all is well. http://SERVER_DOMAIN_NAME_OR_IP 
++ Confirm that your Nginx server is up and running, using the following URL; if you see the default Nginx web page, all is well. http://SERVER_DOMAIN_NAME_OR_IP 
 
 ## 3. Step 2: Create Yum Local Repository 
 
-+ 5. Install the required packages for creating, configuring and managing your local repository.
++ Install the required packages for creating, configuring and managing your local repository.
   
   ```
   yum install createrepo  yum-utils
   ```
-+ 6.  Create the necessary directories (yum repositories) that will store packages and any related information.
++ Create the necessary directories (yum repositories) that will store packages and any related information.
   
   ```
   mkdir -p /var/www/html/repos/{base,centosplus,extras,updates} 
@@ -78,7 +78,7 @@ This article contains the following topics:
   mkdir -p /var/www/html/repos/updates
   ```
   
-+ 7. Use the reposync tool to synchronize CentOS YUM repositories to the local directories as shown.
++ Use the reposync tool to synchronize CentOS YUM repositories to the local directories as shown.
   
   ```
   reposync -g -l -d -m --repoid=base --newest-only --download-metadata --download_path=/var/www/html/repos/base
@@ -87,13 +87,13 @@ This article contains the following topics:
   reposync -g -l -d -m --repoid=updates --newest-only --download-metadata --download_path=/var/www/html/repos/updates
   ```
   
-+ 8. Create a new repodata for each repositories by running the following commands, where the flag -gis used to update the package group information using the specified .xml file.
++ Create a new repodata for each repositories by running the following commands, where the flag -gis used to update the package group information using the specified .xml file.
   
   ```
   sudo createrepo /var/www/html
   ```
   
-+ 9. To enable viewing of repositories and packages in them, via a web browser, create a Nginx server block which points to the root of your repositories as shown.
++ To enable viewing of repositories and packages in them, via a web browser, create a Nginx server block which points to the root of your repositories as shown.
   
   ```
   vim /etc/nginx/conf.d/repos.conf 
@@ -113,7 +113,7 @@ This article contains the following topics:
   }
   ```
   
-+ 10. Then restart your Nginx server and view the repositories from a web browser using the following URL.
++ Then restart your Nginx server and view the repositories from a web browser using the following URL.
   
   ```
   http://10.168.6.60
@@ -121,7 +121,7 @@ This article contains the following topics:
   
 ## 4. Step 3: Create Cron Job to Synchronize and Create Repositories
 
-11. Add a cron job that will automatically synchronize your local repos with the official CentOS repos to grab the updates and security patches.
+Add a cron job that will automatically synchronize your local repos with the official CentOS repos to grab the updates and security patches.
   
 ```
 vim /etc/cron.daily/update-localrepos
