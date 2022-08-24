@@ -58,7 +58,10 @@ This article contains the following topics:
     firewall-cmd --reload
     ```
 + Confirm that your Nginx server is up and running, using the following URL; if you see the default Nginx web page, all is well. http://SERVER_DOMAIN_NAME_OR_IP 
-
++ Tắt Selinux của hệ thống:
+  ```
+  vim /etc/sysconfig/selinux
+  ```
 ## 3. Step 2: Create Yum Local Repository 
 
 + Install the required packages for creating, configuring and managing your local repository.
@@ -93,6 +96,8 @@ This article contains the following topics:
   sudo createrepo /var/www/html
   ```
   
+  ![image](https://user-images.githubusercontent.com/75653012/186324388-741c1d28-7b52-4f5d-a85c-23030018ebcc.png)
+  
 + To enable viewing of repositories and packages in them, via a web browser, create a Nginx server block which points to the root of your repositories as shown.
   
   ```
@@ -119,6 +124,8 @@ This article contains the following topics:
   http://10.168.6.60
   ```
   
+  ![image](https://user-images.githubusercontent.com/75653012/186324593-7fff663a-3acc-4380-a66e-cb75aa36994a.png)
+
 ## 4. Step 3: Create Cron Job to Synchronize and Create Repositories
 
 Add a cron job that will automatically synchronize your local repos with the official CentOS repos to grab the updates and security patches.
