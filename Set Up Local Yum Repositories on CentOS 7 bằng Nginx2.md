@@ -168,3 +168,12 @@ yum clean all
 yum repolist all
 ```
 
+Debug:
+
+- If files do not appear when viewing the repositories from web browser:
+  
+  ```
+  Solution: restorecon -R /var/www/html/repos
+  ```
+  
+- If you have any issues such as `Error 404 page not found` it might be related to your nginx configuration. To view nginx errors go to `/var/log/nginx/error.log`. Errors might be related to nginx configuration (`etc/nginx/conf.d/repos.conf`). Please make sure you configured it properly. 
