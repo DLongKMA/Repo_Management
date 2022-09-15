@@ -1,3 +1,6 @@
+# Quản lý Repo của CentOS VNPT-IT
+
+
 ```
 root@ubuntu:/var/www/repo# ll
 total 3996684
@@ -81,3 +84,6 @@ drwxr-xr-x  2 root     root      483328 Sep 16  2018 Packages/
 drwxr-xr-x  2 root     root        4096 Sep 11 11:42 repodata/
 root@ubuntu:/var/www/repo#
 ```
+ Sự khác biệt trong các định dạng file của OS6, 7 và 8 là như thế nào ?
+ 
+ 
