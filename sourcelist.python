@@ -57,5 +57,22 @@ deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates multiverse
 ## Also, please note that software in backports WILL NOT receive any review
 ## or updates from the Ubuntu security team.
 deb http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse  # Xenial-backports: hua cac chuong trinh da phat trien
-                                                                                               # , bao gom cac phien ban moi nhung ko dc kien tra
-"sources.list.bak" 77L, 5111C                                                                                                       1,1           Top
+                                                                                               # bao gom cac phien ban moi nhung ko dc kien tra
+                                                                                               # boi Ubuntu Secu
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse
+
+## Uncomment the following two lines to add software from Canonical's
+## 'partner' repository.
+## This software is not part of Ubuntu, but is offered by Canonical and the
+## respective vendors as a service to Ubuntu users.
+# deb http://archive.canonical.com/ubuntu xenial partner
+# deb-src http://archive.canonical.com/ubuntu xenial partner
+
+deb http://security.ubuntu.com/ubuntu xenial-security main restricted   # xenial-security: Chua cac chuong trinh bao mat he thong
+# deb-src http://security.ubuntu.com/ubuntu xenial-security main restricted
+deb http://security.ubuntu.com/ubuntu xenial-security universe
+# deb-src http://security.ubuntu.com/ubuntu xenial-security universe
+deb http://security.ubuntu.com/ubuntu xenial-security multiverse
+# deb-src http://security.ubuntu.com/ubuntu xenial-security multiverse
+                                                                                                                                    77,1          Bot                                                                                            
+
