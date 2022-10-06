@@ -1,0 +1,61 @@
+#
+
+# deb cdrom:[Ubuntu-Server 16.04.7 LTS _Xenial Xerus_ - Release amd64 (20200810)]/ xenial main restricted
+
+# deb cdrom:[Ubuntu-Server 16.04.7 LTS _Xenial Xerus_ - Release amd64 (20200810)]/ xenial main restricted
+
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
+# newer versions of the distribution.
+
+# Nguon WebServer luu tru Debian Repo co the luu tru ca binary va ca source cua chuong trinh
+
+deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted         # Keywork "deb" la dia chi nguon web chi de download chuong trinh binary
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main restricted   # Keywork "deb-src" dung cho khai bao nguon download source cua chuong trinh
+                                                                        # xenial: repo chua chuong trinh danh cho viec nang cap phien ban chuong trinh                                                                        #         hoac he thong
+                                                                        # main: Chuong trinh mien phi va ma nguon mo tu cty cha Ubuntu Canonical
+
+# CU PHAP KHAI BAO NGUON DL LUU TRU Debian Repository trong file /etc/apt/source.list
+# deb uri distribution [componet1] [component2] [...]
+# deb-src distribution [componet1] [component2] [...]
+
+# Keywork uri o day la thong tin khai bao dia chi webserver cua Debian Repo dang dc luu tru chuong trinh OS tuong ung
+# Chung ta co the khai bao domain hay dia chi IP
+
+# Phan keywork "distribution" khi khai thao thong tin nguon Debian Repo
+# Chung ta can khai bao code name cua OS Ubuntu/Debian cung ten repository neu co, ma chung ta can download chuong trinh cai dat tu dong
+# Warning: Codename ko phai la phien ban version
+# Vi du: 16.04-xenial ; 14.04 - trusty
+
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted  # xenial-update: repo chua cac chuong trinh danh cho viec nang cap fix loi
+                                                                         # he thong va chuong trinh cu
+                                                                         # restricted: cung cap drivr cho thiet bi
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://us.archive.ubuntu.com/ubuntu/ xenial universe                 # universe: Chuong trinh mien phi va ma nguon mo tu cong dong duy tri
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial universe
+deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates universe
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates universe
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## multiverse WILL NOT receive any review or updates from the Ubuntu
+## security team.
+deb http://us.archive.ubuntu.com/ubuntu/ xenial multiverse               # multiverse: ot so chuong tring duoc gioi han boi van de quan quyen
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial multiverse
+deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates multiverse
+# deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates multiverse
+
+## N.B. software from this repository may not have been tested as
+## extensively as that contained in the main release, although it includes
+## newer versions of some applications which may provide useful features.
+## Also, please note that software in backports WILL NOT receive any review
+## or updates from the Ubuntu security team.
+deb http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse  # Xenial-backports: hua cac chuong trinh da phat trien
+                                                                                               # , bao gom cac phien ban moi nhung ko dc kien tra
+"sources.list.bak" 77L, 5111C                                                                                                       1,1           Top
